@@ -1,4 +1,4 @@
-$morse_code = {
+morse_code = {
   '.-' => 'A',
   '-...' => 'B',
   '-.-.' => 'C',
@@ -28,11 +28,11 @@ $morse_code = {
 }
 
 def decode_char(string)
-  puts $morse_code[string]
+  puts morse_code[string]
 end
 
 def decode_word(morse)
-  decoded_chars = morse.split.map { |char| $morse_code[char] }
+  decoded_chars = morse.split.map { |char| morse_code[char] }
   decoded_word = decoded_chars.join('')
   decoded_word
 end
