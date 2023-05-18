@@ -1,4 +1,4 @@
-morse_code = {
+$morse_code = {
   '.-' => 'A',
   '-...' => 'B',
   '-.-.' => 'C',
@@ -9,12 +9,12 @@ morse_code = {
   '....' => 'H',
   '..' => 'I',
   '.---' => 'J',
-  '-.-' => 'K',
+  '-.- ' => 'K',
   '.-..' => 'L',
   '--' => 'M',
   '-.' => 'N',
   '---' => 'O',
-  '.--.' => 'P',
+  '.-- .' => 'P',
   '--.-' => 'Q',
   '.-.' => 'R',
   '...' => 'S',
@@ -28,21 +28,21 @@ morse_code = {
 }
 
 def decode_char(string)
-  puts morse_code[string]
+    puts $morse_code[string]
 end
-
+  
 def decode_word(morse)
-  decoded_chars = morse.split.map { |char| morse_code[char] }
+  decoded_chars = morse.split(' ').map { |char| $morse_code[char] }
   decoded_word = decoded_chars.join('')
-  decoded_word
+  return decoded_word
 end
 
 def decode_message(message)
   words = message.split('   ').map { |word| decode_word(word) }
   decoded_message = words.join(' ')
-  decoded_message
+  return decoded_message
 end
-
-decode_char('.-')
-puts decode_word('-- -.--')
-puts decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+ 
+decode_char(".-")
+puts decode_word("-- -.--")
+puts decode_message(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
